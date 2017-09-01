@@ -212,3 +212,10 @@ EXTENDED_POST_PROCESS_PROPS := vendor/candy/tools/candy_process_props.py
 
 # Google sounds
 include vendor/candy/google/GoogleAudio.mk
+
+# Themes
+PRODUCT_PACKAGES += \
+    PixelTheme \
+    Stock
+
+
