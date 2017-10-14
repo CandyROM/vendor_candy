@@ -1,4 +1,4 @@
-# Candy functions that extend build/envsetup.sh
+# Candy functions that extend build/envsetup.sH
 
 function candy_device_combos()
 {
@@ -186,11 +186,11 @@ function hmm() #hidden
 }
 
 function tclist {
-dir=prebuilts/gcc/linux-x86/
+dir=$ANDROID_BUILD_TOP/prebuilts/gcc/linux-x86/
     if [[ -f /usr/bin/tree ]]
        then
           tree -L 2 $dir -I 'host' |
-          sed s':prebuilts/gcc/linux-x86/:** Toolchain Options **:' |
+          sed s':'$ANDROID_BUILD_TOP'/prebuilts/gcc/linux-x86/:** Toolchain Options **:' |
           sed s'/aarch64-linux-android-//' |
           sed s'/aarch64-linux-gnu-//'|
           sed s'/arm-eabi-//' |
@@ -198,7 +198,8 @@ dir=prebuilts/gcc/linux-x86/
           sed s'/arm-linux-gnueabi-//' |
           sed s'/x86_64-linux-glibc2.15-//' |
           sed s'/x86_64-w64-mingw32-//' |
-          sed s'/x86_64-linux-android-//';
+          sed s'/x86_64-linux-android-//' |
+          sed s'/mips64el-linux-android-//';
      else
           echo
           echo 'The binary "tree" is not installed on your system'
@@ -209,5 +210,5 @@ dir=prebuilts/gcc/linux-x86/
 candy_append_hmm "candyremote" "Add a git remote for matching candy repository"
 candy_append_hmm "aospremote" "Add git remote for matching AOSP repository"
 candy_append_hmm "cafremote" "Add git remote for matching CodeAurora repository."
-candy_append_hmm "tclist"  "List available toolchain options."
+candy_add_hmm_entry "tclist"  "List available toolchain options."
 
