@@ -202,3 +202,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 EXTENDED_POST_PROCESS_PROPS := vendor/candy/tools/candy_process_props.py
 
+# Google sounds
+include vendor/candy/google/GoogleAudio.mk
