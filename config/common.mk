@@ -218,4 +218,3 @@ PRODUCT_PACKAGES += \
     PixelTheme \
     Stock
 
-
